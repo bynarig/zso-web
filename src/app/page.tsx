@@ -38,7 +38,7 @@ export default function Home() {
 
           {/* Hero section */}
           <div className="space-y-8 mt-16">
-            <div className="gradient-border bg-black/50 backdrop-blur-sm p-8 md:p-12 rounded-2xl">
+            <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm border border-purple-500/30 hover:border-purple-500/60 transition-all p-8 md:p-12 rounded-2xl">
               <h2 className="text-3xl md:text-4xl font-semibold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
                 Meet New People. Build Real Connections.
               </h2>
@@ -114,7 +114,7 @@ export default function Home() {
                 href="/join"
                 className="inline-block group relative px-12 py-5 text-xl font-semibold rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 glow-purple"
               >
-                <span className="relative z-10">Join Our Community</span>
+                <span className="relative z-10 text-white">Join Our Community</span>
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity"></span>
               </Link>
               <p className="mt-4 text-gray-400 text-sm">

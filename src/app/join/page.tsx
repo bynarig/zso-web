@@ -117,7 +117,7 @@ export default function JoinPage() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="gradient-border bg-black/50 backdrop-blur-sm p-8 md:p-10 rounded-2xl space-y-6">
+          <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm border border-purple-500/30 hover:border-purple-500/60 transition-all p-8 md:p-10 rounded-2xl space-y-6">
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-purple-300 mb-2">
