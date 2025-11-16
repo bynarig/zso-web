@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useLayoutEffect } from "react";
+import { useI18n } from "@/components/LanguageProvider";
 
 export default function JoinPage() {
   const [mounted, setMounted] = useState(false);
@@ -15,6 +16,8 @@ export default function JoinPage() {
     lookingFor: "friends",
     instagram: "",
   });
+
+  const { t } = useI18n();
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -50,24 +53,24 @@ export default function JoinPage() {
 
         <div className="relative z-10 max-w-2xl text-center space-y-8">
           <div className="text-6xl animate-bounce">🎉</div>
-          <h1 className="text-5xl font-bold text-glow-purple">Welcome to Seznamka!</h1>
+          <h1 className="text-5xl font-bold text-glow-purple">{t("join.welcome.title")}</h1>
           <p className="text-xl text-gray-300">
-            Thank you for joining our community! We&apos;ll contact you soon with details about our next event.
+            {t("join.welcome.desc")}
           </p>
           <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30">
-            <h2 className="text-2xl font-semibold text-purple-300 mb-4">What&apos;s Next?</h2>
+            <h2 className="text-2xl font-semibold text-purple-300 mb-4">{t("join.whatsnext")}</h2>
             <ul className="text-left space-y-3 text-gray-300">
               <li className="flex items-start gap-3">
                 <span className="text-purple-400">✓</span>
-                <span>Check your email for a confirmation message</span>
+                <span>{t("join.check.email")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-purple-400">✓</span>
-                <span>Follow us on Instagram for event updates</span>
+                <span>{t("join.follow.ig")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-purple-400">✓</span>
-                <span>Get ready to meet amazing people!</span>
+                <span>{t("join.get.ready")}</span>
               </li>
             </ul>
           </div>
@@ -75,7 +78,7 @@ export default function JoinPage() {
             href="/"
             className="inline-block px-8 py-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
           >
-            Back to Home
+            {t("nav.back").replace("← ", "")} {/* keep clean text on button */}
           </Link>
         </div>
       </div>
@@ -97,10 +100,10 @@ export default function JoinPage() {
       <nav className="relative z-10 border-b border-gray-800 bg-black/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-glow-purple hover:text-purple-400 transition-colors">
-            Seznamka
+            {t("join.header.title")}
           </Link>
           <Link href="/" className="text-gray-400 hover:text-white transition-colors">
-            ← Back
+            {t("nav.back")}
           </Link>
         </div>
       </nav>
@@ -109,10 +112,10 @@ export default function JoinPage() {
       <main className="relative z-10 max-w-3xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 text-glow-purple">
-            Join Our Community
+            {t("join.main.title")}
           </h1>
           <p className="text-xl text-gray-300">
-            Fill out the form below and become part of something special
+            {t("join.main.subtitle")}
           </p>
         </div>
 
@@ -121,7 +124,7 @@ export default function JoinPage() {
             {/* Name */}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-purple-300 mb-2">
-                Full Name *
+                {t("form.name")}
               </label>
               <input
                 type="text"
@@ -131,14 +134,14 @@ export default function JoinPage() {
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
-                placeholder="Enter your name"
+                placeholder={t("form.name.placeholder")}
               />
             </div>
 
             {/* Email */}
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-purple-300 mb-2">
-                Email Address *
+                {t("form.email")}
               </label>
               <input
                 type="email"
@@ -148,14 +151,14 @@ export default function JoinPage() {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
-                placeholder="your.email@university.cz"
+                placeholder={t("form.email.placeholder")}
               />
             </div>
 
             {/* University */}
             <div>
               <label htmlFor="university" className="block text-sm font-medium text-purple-300 mb-2">
-                University *
+                {t("form.university")}
               </label>
               <input
                 type="text"
@@ -165,7 +168,7 @@ export default function JoinPage() {
                 value={formData.university}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
-                placeholder="e.g., ČVUT, UK, VŠE"
+                placeholder={t("form.university.placeholder")}
               />
             </div>
 
@@ -173,7 +176,7 @@ export default function JoinPage() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="faculty" className="block text-sm font-medium text-purple-300 mb-2">
-                  Faculty *
+                  {t("form.faculty")}
                 </label>
                 <input
                   type="text"
@@ -183,13 +186,13 @@ export default function JoinPage() {
                   value={formData.faculty}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
-                  placeholder="e.g., FIT, FEL"
+                  placeholder={t("form.faculty.placeholder")}
                 />
               </div>
 
               <div>
                 <label htmlFor="year" className="block text-sm font-medium text-purple-300 mb-2">
-                  Year of Study *
+                  {t("form.year")}
                 </label>
                 <select
                   id="year"
@@ -199,14 +202,14 @@ export default function JoinPage() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white"
                 >
-                  <option value="">Select year</option>
-                  <option value="1">1st Year</option>
-                  <option value="2">2nd Year</option>
-                  <option value="3">3rd Year</option>
-                  <option value="4">4th Year</option>
-                  <option value="5+">5th Year+</option>
-                  <option value="masters">Master&apos;s</option>
-                  <option value="phd">PhD</option>
+                  <option value="">{t("form.year.select")}</option>
+                  <option value="1">{t("form.year.1")}</option>
+                  <option value="2">{t("form.year.2")}</option>
+                  <option value="3">{t("form.year.3")}</option>
+                  <option value="4">{t("form.year.4")}</option>
+                  <option value="5+">{t("form.year.5plus")}</option>
+                  <option value="masters">{t("form.year.masters")}</option>
+                  <option value="phd">{t("form.year.phd")}</option>
                 </select>
               </div>
             </div>
@@ -214,7 +217,7 @@ export default function JoinPage() {
             {/* Looking For */}
             <div>
               <label htmlFor="lookingFor" className="block text-sm font-medium text-purple-300 mb-2">
-                What are you looking for? *
+                {t("form.looking")}
               </label>
               <select
                 id="lookingFor"
@@ -224,17 +227,17 @@ export default function JoinPage() {
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white"
               >
-                <option value="friends">New Friends</option>
-                <option value="relationship">A Relationship</option>
-                <option value="both">Both</option>
-                <option value="networking">Networking</option>
+                <option value="friends">{t("form.looking.friends")}</option>
+                <option value="relationship">{t("form.looking.relationship")}</option>
+                <option value="both">{t("form.looking.both")}</option>
+                <option value="networking">{t("form.looking.networking")}</option>
               </select>
             </div>
 
             {/* Interests */}
             <div>
               <label htmlFor="interests" className="block text-sm font-medium text-purple-300 mb-2">
-                Your Interests & Hobbies
+                {t("form.interests")}
               </label>
               <textarea
                 id="interests"
@@ -243,14 +246,14 @@ export default function JoinPage() {
                 onChange={handleChange}
                 rows={3}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-500 resize-none"
-                placeholder="Tell us about your interests, hobbies, or what you're passionate about..."
+                placeholder={t("form.interests.placeholder")}
               />
             </div>
 
             {/* Instagram (optional) */}
             <div>
               <label htmlFor="instagram" className="block text-sm font-medium text-blue-300 mb-2">
-                Instagram Handle (Optional)
+                {t("form.instagram")}
               </label>
               <input
                 type="text"
@@ -259,7 +262,7 @@ export default function JoinPage() {
                 value={formData.instagram}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all text-white placeholder-gray-500"
-                placeholder="@yourusername"
+                placeholder={t("form.instagram.placeholder")}
               />
             </div>
 
@@ -268,11 +271,11 @@ export default function JoinPage() {
               type="submit"
               className="w-full py-4 rounded-lg bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-[1.02] font-semibold text-lg glow-purple"
             >
-              Join Seznamka Community
+              {t("form.submit")}
             </button>
 
             <p className="text-center text-sm text-gray-400 mt-4">
-              By joining, you agree to participate in a safe, respectful community
+              {t("form.agree")}
             </p>
           </div>
         </form>
@@ -280,22 +283,22 @@ export default function JoinPage() {
         {/* Info boxes */}
         <div className="grid md:grid-cols-2 gap-6 mt-12">
           <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm p-6 rounded-xl border border-purple-500/30">
-            <h3 className="text-xl font-semibold text-purple-300 mb-3">🎯 What to Expect</h3>
+            <h3 className="text-xl font-semibold text-purple-300 mb-3">{t("join.expect.title")}</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li>• Regular monthly or bi-weekly events</li>
-              <li>• Fun games and activities</li>
-              <li>• Meet students from different faculties</li>
-              <li>• Safe and organized environment</li>
+              <li>{t("join.expect.1")}</li>
+              <li>{t("join.expect.2")}</li>
+              <li>{t("join.expect.3")}</li>
+              <li>{t("join.expect.4")}</li>
             </ul>
           </div>
 
           <div className="bg-gradient-to-br from-blue-900/40 to-black/40 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30">
-            <h3 className="text-xl font-semibold text-blue-300 mb-3">💡 Why Join?</h3>
+            <h3 className="text-xl font-semibold text-blue-300 mb-3">{t("join.why.title")}</h3>
             <ul className="space-y-2 text-gray-300 text-sm">
-              <li>• Break out of your comfort zone</li>
-              <li>• No pressure, just genuine connections</li>
-              <li>• Reduce loneliness and isolation</li>
-              <li>• Build your social network</li>
+              <li>{t("join.why.1")}</li>
+              <li>{t("join.why.2")}</li>
+              <li>{t("join.why.3")}</li>
+              <li>{t("join.why.4")}</li>
             </ul>
           </div>
         </div>
@@ -303,9 +306,8 @@ export default function JoinPage() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 text-gray-500 text-sm border-t border-gray-800 mt-16">
-        <p>© 2025 Seznamka • Creating connections, building community</p>
+        <p>{t("footer.copy")}</p>
       </footer>
     </div>
   );
 }
-

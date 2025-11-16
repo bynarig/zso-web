@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useLayoutEffect, useState } from "react";
+import { useI18n } from "@/components/LanguageProvider";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const { t } = useI18n();
 
   useLayoutEffect(() => {
     // This is the recommended pattern for fixing hydration errors in Next.js
@@ -29,10 +31,10 @@ export default function Home() {
           {/* Logo/Title */}
           <div className="space-y-4">
             <h1 className="text-7xl md:text-8xl font-bold tracking-tight text-glow-purple">
-              Seznamka
+              {t("home.hero.title")}
             </h1>
             <p className="text-2xl md:text-3xl text-purple-300 font-light">
-              Connect • Meet • Belong
+              {t("home.hero.subtitle")}
             </p>
           </div>
 
@@ -40,12 +42,10 @@ export default function Home() {
           <div className="space-y-8 mt-16">
             <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm border border-purple-500/30 hover:border-purple-500/60 transition-all p-8 md:p-12 rounded-2xl">
               <h2 className="text-3xl md:text-4xl font-semibold mb-6 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Meet New People. Build Real Connections.
+                {t("home.section.title")}
               </h2>
               <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
-                After high school, meeting new people becomes challenging. Seznamka creates safe,
-                organized events where university students can connect face-to-face in a natural,
-                pressure-free environment.
+                {t("home.section.desc")}
               </p>
             </div>
 
@@ -53,20 +53,20 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6 mt-12">
               <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm p-6 rounded-xl border border-purple-500/30 hover:border-purple-500/60 transition-all hover:glow-purple">
                 <div className="text-4xl mb-4">🛡️</div>
-                <h3 className="text-xl font-semibold text-purple-300 mb-2">Safe Environment</h3>
-                <p className="text-gray-400">No fake profiles. Real people, real connections in organized settings.</p>
+                <h3 className="text-xl font-semibold text-purple-300 mb-2">{t("benefit.safe.title")}</h3>
+                <p className="text-gray-400">{t("benefit.safe.desc")}</p>
               </div>
 
               <div className="bg-gradient-to-br from-blue-900/40 to-black/40 backdrop-blur-sm p-6 rounded-xl border border-blue-500/30 hover:border-blue-500/60 transition-all hover:glow-blue">
                 <div className="text-4xl mb-4">🎯</div>
-                <h3 className="text-xl font-semibold text-blue-300 mb-2">Natural Meetings</h3>
-                <p className="text-gray-400">Meet people through games and activities, not awkward small talk.</p>
+                <h3 className="text-xl font-semibold text-blue-300 mb-2">{t("benefit.natural.title")}</h3>
+                <p className="text-gray-400">{t("benefit.natural.desc")}</p>
               </div>
 
               <div className="bg-gradient-to-br from-purple-900/40 to-black/40 backdrop-blur-sm p-6 rounded-xl border border-purple-500/30 hover:border-purple-500/60 transition-all hover:glow-purple">
                 <div className="text-4xl mb-4">💚</div>
-                <h3 className="text-xl font-semibold text-purple-300 mb-2">Community First</h3>
-                <p className="text-gray-400">Connect students from different faculties and universities.</p>
+                <h3 className="text-xl font-semibold text-purple-300 mb-2">{t("benefit.community.title")}</h3>
+                <p className="text-gray-400">{t("benefit.community.desc")}</p>
               </div>
             </div>
 
@@ -76,11 +76,11 @@ export default function Home() {
                 href="/join"
                 className="inline-block group relative px-12 py-5 text-xl font-semibold rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 glow-purple"
               >
-                <span className="relative z-10 text-white">Join Our Community</span>
+                <span className="relative z-10 text-white">{t("cta.join")}</span>
                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity"></span>
               </Link>
               <p className="mt-4 text-gray-400 text-sm">
-                Be part of something special. Your next connection awaits.
+                {t("home.cta.small")}
               </p>
             </div>
           </div>
@@ -89,7 +89,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-8 text-gray-500 text-sm border-t border-gray-800">
-        <p>© 2025 Seznamka • Creating connections, building community</p>
+        <p>{t("footer.copy")}</p>
       </footer>
     </div>
   );

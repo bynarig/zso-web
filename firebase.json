@@ -1,7 +1,6 @@
 {
   "hosting": {
     "site": "seznamka-web",
-    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",
