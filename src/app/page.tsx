@@ -70,44 +70,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Story section */}
-            <div className="bg-black/60 backdrop-blur-sm p-8 md:p-10 rounded-2xl border border-gray-800 mt-12">
-              <div className="space-y-6 text-left max-w-2xl mx-auto">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">🧑‍🎓</span>
-                  <div>
-                    <h3 className="text-xl font-semibold text-purple-300 mb-2">Our Story</h3>
-                    <p className="text-gray-300">
-                      Meet Tomáš, a first-year ČVUT student who just moved to a new city.
-                      He spends most of his time in lectures or at his computer. While he&apos;s
-                      active on social media, he&apos;s shy about approaching new people in real life.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">🎯</span>
-                  <div>
-                    <p className="text-gray-300">
-                      Tomáš wants to find friends or someone special. He wants to grab coffee,
-                      chat, and feel part of the student community. That&apos;s where Seznamka comes in.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">⚡</span>
-                  <div>
-                    <p className="text-gray-300">
-                      Our events bring together students from different faculties in a safe,
-                      friendly, and relaxed environment. Through games and activities, people
-                      connect naturally—no pressure, just genuine interactions.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* CTA Button */}
             <div className="mt-16">
               <Link
