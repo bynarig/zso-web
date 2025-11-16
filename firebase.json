@@ -1,17 +1,13 @@
 {
   "hosting": {
     "site": "seznamka-web",
+    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
+    "cleanUrls": true,
     "headers": [
       {
         "source": "**/*.@(jpg|jpeg|gif|png|svg|webp|js|css)",
@@ -25,4 +21,3 @@
     ]
   }
 }
-
