@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLayoutEffect, useState } from "react";
 import { useI18n } from "@/components/LanguageProvider";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -87,10 +88,6 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-10 text-center py-8 text-gray-500 text-sm border-t border-gray-800">
-        <p>{t("footer.copy")}</p>
-      </footer>
     </div>
   );
 }

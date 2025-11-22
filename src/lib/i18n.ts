@@ -1,3 +1,5 @@
+'use client'
+
 export type Language = "cs" | "uk" | "ru" | "en";
 
 export const defaultLanguage: Language = "cs";

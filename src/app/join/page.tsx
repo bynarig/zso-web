@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState, useLayoutEffect } from "react";
 import { useI18n } from "@/components/LanguageProvider";
+import Footer from "@/components/Footer";
 
 export default function JoinPage() {
   const [mounted, setMounted] = useState(false);
@@ -304,10 +305,6 @@ export default function JoinPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="relative z-10 text-center py-8 text-gray-500 text-sm border-t border-gray-800 mt-16">
-        <p>{t("footer.copy")}</p>
-      </footer>
     </div>
   );
 }
